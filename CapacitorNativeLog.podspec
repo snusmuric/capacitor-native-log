@@ -1,8 +1,8 @@
 
   Pod::Spec.new do |s|
     s.name = 'CapacitorNativeLog'
-    s.version = '0.0.1'
-    s.summary = 'Alternative to Capacitor's Console plugin for logging to the native device log console'
+    s.version = '0.0.3'
+    s.summary = 'Alternative to Capacitor‘s Console plugin for logging to the native device log console'
     s.license = 'MIT'
     s.homepage = 'https://github.com/Mote-OU/capacitor-native-log'
     s.author = 'Michael Lawlor'

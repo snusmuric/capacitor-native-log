@@ -17,7 +17,7 @@ public class CAPNativeLog: CAPPlugin {
     @objc func log(_ call: CAPPluginCall) {
         let message = call.getString("message") ?? ""
         let level = call.getString("level") ?? LogLevels.debug.rawValue
-        guard let logLevel = LogLevels(rawValue: level.lowercased()) else {
+        guard let logLevel = LogLevels(rawValue: level.uppercased()) else {
             call.reject("Invalid log level: \(level)")
             return
         }

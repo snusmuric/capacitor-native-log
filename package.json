@@ -1,7 +1,7 @@
 {
   "name": "capacitor-native-log",
-  "version": "0.0.2",
-  "description": "Alternative to Capacitor's Console plugin for logging to the native device log console",
+  "version": "0.0.3",
+  "description": "Alternative to Capacitor‘s Console plugin for logging to the native device log console",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "scripts": {
