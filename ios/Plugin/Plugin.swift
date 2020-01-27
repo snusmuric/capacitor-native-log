@@ -16,7 +16,7 @@ public class CAPNativeLog: CAPPlugin {
         let type: OSLogType
         switch level.lowercased() {
             case "debug":
-                type = OSLogType.debug
+                type = OSLogType.info
             case "info":
                 type = OSLogType.info
             case "warn":
