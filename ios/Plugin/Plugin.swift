@@ -1,5 +1,12 @@
 import Foundation
+import os.log
 import Capacitor
+
+extension OSLog {
+//    private static var subsystem = Bundle.main.bundleIdentifier!
+    private static var subsystem = "app.play-time"
+    private static var category = "CAPNativeLog"
+}
 
 /**
  * Please read the Capacitor iOS Plugin Development Guide
@@ -7,24 +14,29 @@ import Capacitor
  */
 @objc(CAPNativeLog)
 public class CAPNativeLog: CAPPlugin {
-    enum LogLevels: String {
-        case debug = "DEBUG"
-        case info = "INFO"
-        case warn = "WARN"
-        case error = "ERROR"
-    }
-    
     @objc func log(_ call: CAPPluginCall) {
+        NSLog("CAPNativeLog NSLog")
+        os_log("CAPNativeLog os_log", log: OSLog.default, type: OSLogType.error)
         let message = call.getString("message") ?? ""
-        let level = call.getString("level") ?? LogLevels.debug.rawValue
-        guard let logLevel = LogLevels(rawValue: level.uppercased()) else {
-            call.reject("Invalid log level: \(level)")
-            return
-        }
-        writeToLog(level: logLevel.rawValue, message: message)
+        let level = call.getString("level") ?? "debug"
+        writeToLog(level: level, message: message)
     }
     
-    @objc internal func writeToLog(level: String, message: String) {
-        NSLog("[\(level)] - \(message)")
+    internal func writeToLog(level: String, message: String) {
+        NSLog("CAPNativeLog writeToLog [\(level)] - \(message)")
+        let type: OSLogType
+        switch level.lowercased() {
+            case "debug":
+                type = OSLogType.debug
+            case "info":
+                type = OSLogType.info
+            case "warn":
+                type = OSLogType.error
+            case "error":
+                type = OSLogType.fault
+            default:
+                type = OSLogType.default
+        }
+        os_log("%{public}@", log: OSLog.default, type: type, message)
     }
 }
