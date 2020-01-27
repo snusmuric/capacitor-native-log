@@ -18,18 +18,19 @@ class PluginTests: XCTestCase {
         // This is an example of a functional test case for a plugin.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        let value = "Hello, World!"
-        let plugin = MyPlugin()
+        let message = "Hello, World!"
+        let level = "info"
+        let plugin = CAPNativeLog()
         
         let call = CAPPluginCall(callbackId: "test", options: [
-            "value": value
+            "message": message, "level": level
         ], success: { (result, call) in
-            let resultValue = result!.data["value"] as? String
-            XCTAssertEqual(value, resultValue)
+//            let resultValue = result!.data["value"] as? String
+//            XCTAssertEqual(value, resultValue)
         }, error: { (err) in
             XCTFail("Error shouldn't have been called")
         })
         
-        plugin.echo(call!)
+        plugin.log(call!)
     }
 }

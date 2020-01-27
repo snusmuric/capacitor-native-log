@@ -7,7 +7,7 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 
 @NativePlugin()
-public class CAPNativeLogPlugin extends Plugin {
+public class CAPNativeLog extends Plugin {
 
     @PluginMethod()
     public void echo(PluginCall call) {

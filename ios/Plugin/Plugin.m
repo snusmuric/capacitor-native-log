@@ -3,6 +3,6 @@
 
 // Define the plugin using the CAP_PLUGIN Macro, and
 // each method the plugin supports using the CAP_PLUGIN_METHOD macro.
-CAP_PLUGIN(CAPNativeLogPlugin, "CAPNativeLogPlugin",
-           CAP_PLUGIN_METHOD(echo, CAPPluginReturnPromise);
+CAP_PLUGIN(CAPNativeLog, "CAPNativeLog",
+           CAP_PLUGIN_METHOD(log, CAPPluginReturnNone);
 )

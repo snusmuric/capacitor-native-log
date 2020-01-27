@@ -1,10 +1,10 @@
 import { WebPlugin } from '@capacitor/core';
-import { CAPNativeLogPluginPlugin } from './definitions';
+import { CAPNativeLogPlugin } from './definitions';
 
-export class CAPNativeLogPluginWeb extends WebPlugin implements CAPNativeLogPluginPlugin {
+export class CAPNativeLogWeb extends WebPlugin implements CAPNativeLogPlugin {
   constructor() {
     super({
-      name: 'CAPNativeLogPlugin',
+      name: 'CAPNativeLog',
       platforms: ['web']
     });
   }
@@ -15,9 +15,9 @@ export class CAPNativeLogPluginWeb extends WebPlugin implements CAPNativeLogPlug
   }
 }
 
-const CAPNativeLogPlugin = new CAPNativeLogPluginWeb();
+const CAPNativeLog = new CAPNativeLogWeb();
 
-export { CAPNativeLogPlugin };
+export { CAPNativeLog };
 
 import { registerWebPlugin } from '@capacitor/core';
-registerWebPlugin(CAPNativeLogPlugin);
+registerWebPlugin(CAPNativeLog);
