@@ -5,5 +5,5 @@ declare module "@capacitor/core" {
 }
 
 export interface CAPNativeLogPlugin {
-  log(message: string, level: string): void;
+  log(options: { message: string, level: string }): void;
 }

@@ -9,7 +9,8 @@ export class CAPNativeLogWeb extends WebPlugin implements CAPNativeLogPlugin {
     });
   }
 
-  log(message: string, level: string): void {
+  log(options: { message: string, level: string }): void {
+    const { message, level } = options;
     switch(level.toLowerCase()) {
       case 'info':
         console.info(message);
