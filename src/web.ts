@@ -9,9 +9,20 @@ export class CAPNativeLogWeb extends WebPlugin implements CAPNativeLogPlugin {
     });
   }
 
-  async echo(options: { value: string }): Promise<{value: string}> {
-    console.log('ECHO', options);
-    return options;
+  log(message: string, level: string): void {
+    switch(level.toLowerCase()) {
+      case 'info':
+        console.info(message);
+        break;
+      case 'warn':
+        console.warn(message);
+        break;
+      case 'error':
+        console.error(message);
+        break;
+      default:
+        console.debug(message)
+    }
   }
 }
 
