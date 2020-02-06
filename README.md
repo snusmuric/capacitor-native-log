@@ -17,6 +17,25 @@ const { CAPNativeLog } = Plugins;
 CAPNativeLog.log({ level: 'info', message: 'Hello World!' });
 ```
 
+### Android:
+
+Open the `MainActivity.java` file in your android project, import the library, and `add` the plugin in the `this.init` function.
+
+```java
+// ...
+
+import host.mote.capacitornativelog.CAPNativeLog;
+
+// ...
+
+    // Initializes the Bridge
+    this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+      // Additional plugins you've installed go here
+      // Ex: add(TotallyAwesomePlugin.class);
+      add(CAPNativeLog.class);
+    }});
+```
+
 ### Notes:
 
 1. Make sure your XCode scheme does not have the `OS_ACTIVITY_MODE` environment variable set to `disable` (Product > Scheme > Edit Scheme > Arguments > Environment Variables)
